@@ -1,4 +1,10 @@
 $tablet-width: 720px;
 $desktop-width: 1260px;
+$mobile-width: 430px;
 $primary-font: 'Oswald', 'Arial Narrow', Arial, sans-serif;
 $primary-color: #1F9DC0;
+
+
+ html {
+height: 1200px;
+}
