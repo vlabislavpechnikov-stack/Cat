@@ -1,0 +1,215 @@
+.header {
+
+
+  &-logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 10px 14px;
+
+    &-image {
+      width: 43px;
+      @media (min-width: $tablet-width) {
+        width: 44px;
+      }
+      @media (min-width: 1220px) {
+        width: 54px;
+      }
+    }
+
+    &-text {
+      font-family: 'Open Sans';
+      font-weight: 600;
+      font-size: 20px;
+      text-transform: uppercase;
+      &_grey {
+        color: #828282;
+      }
+    }
+  }
+
+  &-toggle {
+    position: relative;
+    width: 17px;
+    height: 17px;
+    padding: 5px;
+    img {
+      position: absolute;
+    }
+  }
+
+  &-menu {
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: 0.3s;
+    height: 195px;
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &-link {
+      border-top: 1px solid rgb(230,230,230);
+      width: 100%;
+      text-align: center;
+      padding: 22px 0;
+      font-family: $primary-font;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 20px;
+      letter-spacing: 0%;
+      text-transform: uppercase;
+      a {
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+      transition: 0.3s;
+      &:hover {
+        color:#828282;
+      }
+      }
+    }
+
+    &_closed {
+      height: 0px;
+    }
+  }
+
+
+}
+
+// По умолчанию иконка "крестик" скрыта:
+.header-toggle_close {
+  display: none;
+}
+
+// При применения класса toggle-closed к контейнеру, иконка "три полоски" скрывается, а крестик становится видимым:
+.toggle-closed {
+  .header-toggle_open {
+    display: none;
+  }
+  .header-toggle_close {
+    display: block;
+  }
+}
+
+
+.block {
+  height: 200px;
+  background-color: aqua;
+}
+
+// Планшетная версия
+@media (min-width: $tablet-width) {
+  
+  .header {
+    padding-top: 50px;
+    
+    .container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-logo {
+      padding: 0;
+    }
+
+    &-toggle {
+      display: none; // Прячем кнопку для открытия меню
+    }
+
+    &-menu { // Перестраиваем меню в строчку
+
+      display: flex;
+      flex-direction: row;
+      height: auto;
+      gap: 34px;
+
+      &_closed {
+        height: auto;
+      }
+
+      &-link {
+        border-top: none;
+        width: auto;
+        text-align: center;
+        padding: 10px 0;
+        font-family: $primary-font;
+        font-size: 18px;
+
+        &:first-child {
+          border-bottom: 2px solid rgb(31, 157, 192);
+        }
+      }
+    }
+  }
+
+  .block {
+    background: none;
+  }
+}
+
+// Десктопная версия
+@media (min-width: $desktop-width) {
+
+  .header {
+    position: relative;
+    z-index: 1;
+
+    &-menu {
+
+      &-link {
+        font-size: 20px;
+        font-weight: 400;
+
+        a {
+          color: rgb(255, 255, 255);
+          text-decoration: none;
+          
+          }
+
+        &:first-child {
+          transition: 0.3s;
+          border-bottom: 2px solid rgb(255, 255, 255);
+          
+        }
+
+        &:hover {
+          
+          border-bottom-color: #cccccc;
+          a {
+            color: #cccccc;
+          }
+        }
+      }
+    }
+  }
+
+  .block {
+    position: relative;
+    top: -120px;
+    // z-index: 0;
+
+    height: 676px;
+    
+    background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,140,168,0.5) 50%, rgba(0,212,255,0.5) 100%);
+  }
+
+  .block::before {
+    content: '';
+    display: block;
+    position: relative;
+    left: 50%;
+    z-index: -1;
+    width: 50%;
+    overflow: hidden;
+    height: 676px;
+    background-image: url(../img/index-background-desktop.png);
+    background-repeat: no-repeat;
+    
+  }
+
+}

@@ -1,0 +1,176 @@
+.promo {
+  position: relative;
+  padding-top: 26px;
+
+
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 62.5%;
+    z-index: -1;
+    top: 0px;
+
+    background: rgba(43, 109, 194, 0.85);
+
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 62.5%;
+    z-index: -2;
+    top: 0px;
+
+    background-image: url('../img/index-background-mobile.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+
+  &-heading {
+    margin: 0;
+    margin-bottom: 26px;
+
+    color: rgb(255, 255, 255);
+    font-family: $primary-font;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 0%;
+    text-align: center;
+  }
+
+  &-slogan {
+    color: rgb(255, 255, 255);
+    font-family: $primary-font;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 14px;
+    letter-spacing: 0%;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &-image {
+    width: 100%;
+    transition: 0.5s;
+  }
+
+  &-button {
+    display: block;
+    background: $primary-color;
+    transition: 0.3s;
+    &:hover {
+      background: darken($primary-color, 10%)
+    }
+
+    width: 100%;
+    padding: 11px 0;
+    font-family: $primary-font;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+}
+
+// Планшетная версия
+
+@media (min-width: $tablet-width) {
+
+.promo {
+
+  .container {
+    padding-left: 110px;
+    display: flex;
+    flex-direction: column;
+  }
+  &-heading {
+    margin-top: 36px;
+    text-align: left;
+    color: black;
+    font-size: 60px;
+    line-height: 60px;
+  }
+  &-slogan {
+    text-align: left;
+    color: black;
+    font-size: 20px;
+  }
+  &::after, &::before {
+    display: none;
+  }
+  &-image {
+    order: 1;
+
+    position: relative;
+    top: -85px;
+    left: -55px;
+    z-index: -1;
+    width: 640px;
+
+    display: block;
+    
+
+
+  }
+  &-button {
+    display: inline-block;
+    width: fit-content;
+    font-size: 20px;
+    margin-top: 30px;
+    padding: 16px 30px;
+  }
+}
+
+}
+
+//Десктопная версия
+@media (min-width: $desktop-width) {
+  .promo {
+
+    .container {
+      padding-left: 100px;
+      position: relative;
+      height: 700px;
+      box-sizing: border-box;
+    }
+
+ 
+
+  &::after, &::before {
+    display: block;
+    width: 50%;
+    height: 100%;
+    top: -100px;
+    right: 0;
+  }
+
+  &::before {
+    background-image: url('../img/index-background-desktop.png');
+    background-position-x: left;
+
+  }
+
+  &-image {
+    position: absolute;
+    top: 0;
+    left: 35%;
+    z-index: 1;
+    width: 552px;
+  }
+
+
+  
+  }
+}
+
